@@ -27,6 +27,7 @@ class Service
      *                           - bgcolor           background color (in RRGGBBAA string), default to 'FFFFFF00'
      *                           - save_as_path      file path this generated qrcode will be saved as
      *                           - save_as_format    the format of the save as file or return data. (defaults to 'png')
+     *                           - validate_result   boolean
      *
      * @return bool|string  if save_as option is enabled, a boolean indicating the success or failure will be returned.
      *                      otherwise, the binary string(NOT stream) will be returned.
@@ -38,7 +39,7 @@ class Service
                                 ->setErrorCorrectionLevel(array_get($options, 'ecl', 'high'))
                                 ->setForegroundColor($this->parseColor(array_get($options, 'fgcolor', '00000000')))
                                 ->setBackgroundColor($this->parseColor(array_get($options, 'bgcolor', 'FFFFFF00')))
-                                ->setValidateResult(true);
+                                ->setValidateResult(array_get($options, 'validate_result', false));
 
         ($margin = array_get($options, 'margin')) && $qrcode->setMargin($margin);
 
