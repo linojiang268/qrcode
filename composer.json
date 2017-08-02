@@ -1,0 +1,35 @@
+{
+  "name": "ouarea/qrcode",
+  "version": "v1.0.1",
+  "description": "Service for generate qrcode.",
+  "license": "proprietary",
+  "type": "library",
+
+  "autoload": {
+    "files": [
+      "src/Support/helpers.php"
+    ],
+    "psr-4": {
+      "Ouarea\\Qrcode\\": "src/"
+    }
+  },
+
+  "autoload-dev": {
+  },
+
+  "config": {
+    "preferred-install": "dist"
+  },
+
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+
+  "require": {
+    "endroid/qrcode": "2.2.4"
+  },
+
+  "require-dev": {
+    "phpspec/phpspec": "^2.4",
+    "phpunit/phpunit": "4.7.2"
+  }
+}
