@@ -14,7 +14,7 @@ class Service
      *
      * @param string $content   the content, e.g., links, text, etc
      * @param array $options    options (include but not limited to):
-     *                           - size              the width/height the qrcode. (defaults to 300)
+     *                           - size              the width/height the qrcode. (defaults to 280)
      *                           - margin            the margin of qrcode. (defaults to 10)
      *                           - ecl               (optional)error correction level. might be one of
      *                                               * 'high'     (default)  up to 30% damage
@@ -36,7 +36,7 @@ class Service
     public function generate($content, array $options = [])
     {
         $qrcode = (new QrCode())->setText($content)
-                                ->setSize(array_get($options, 'size', 300))
+                                ->setSize(array_get($options, 'size', 280))
                                 ->setMargin(array_get($options, 'margin', 10))
                                 ->setErrorCorrectionLevel(array_get($options, 'ecl', 'high'))
                                 ->setForegroundColor($this->parseColor(array_get($options, 'fgcolor', '00000000')))
