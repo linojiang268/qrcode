@@ -70,19 +70,6 @@ class ServiceSpec extends ObjectBehavior
         unlink($saveAs); // clean up
     }
 
-    function it_rejects_qrcode_generation_if_size_is_not_proper()
-    {
-        // the logo file (__DIR__ . '/test-data/twitter.png') is 128 by 128 in size
-        // and padding is set to be 10. And hence, the size of the generated qrcode
-        // should be at least 148 (128 + 2 * 10) in width and height.
-        $this->shouldThrow(\Exception::class)
-            ->duringGenerate('Go for it, icarowner', [
-                'size'   => 140,  // 140 is not wide/high enough
-                'logo'   => __DIR__ . '/data/twitter.png',
-                'margin' => 10,
-            ]);
-    }
-
     function it_generates_qrcode_and_scale_the_logo()
     {
         $saveAs = $this->createTempFilename() . '.png';
