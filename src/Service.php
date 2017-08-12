@@ -38,10 +38,11 @@ class Service
         $qrcode = (new QrCode())->setText($content)
                                 ->setSize(array_get($options, 'size', 280))
                                 ->setMargin(array_get($options, 'margin', 10))
-                                ->setErrorCorrectionLevel(array_get($options, 'ecl', 'high'))
                                 ->setForegroundColor($this->parseColor(array_get($options, 'fgcolor', '00000000')))
                                 ->setBackgroundColor($this->parseColor(array_get($options, 'bgcolor', 'FFFFFF00')))
                                 ->setValidateResult(array_get($options, 'validate_result', false));
+
+        ($ecl = array_get($options, 'ecl')) && $qrcode->setErrorCorrectionLevel($ecl);
 
         if ($logo = array_get($options, 'logo')) { // logo given
             $qrcode->setLogoPath($logo);
