@@ -1,6 +1,6 @@
 {
   "name": "ouarea/qrcode",
-  "version": "v1.0.5",
+  "version": "v1.0.6",
   "description": "Service for generate qrcode.",
   "license": "proprietary",
   "type": "library",
@@ -25,7 +25,7 @@
   "prefer-stable": true,
 
   "require": {
-    "endroid/qrcode": "2.2.4"
+    "endroid/qr-code": "3.2.3"
   },
 
   "require-dev": {

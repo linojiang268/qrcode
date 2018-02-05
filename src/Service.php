@@ -35,12 +35,12 @@ class Service
      */
     public function generate($content, array $options = [])
     {
-        $qrcode = (new QrCode())->setText($content)
-                                ->setSize(array_get($options, 'size', 280))
-                                ->setMargin(array_get($options, 'margin', 10))
-                                ->setForegroundColor($this->parseColor(array_get($options, 'fgcolor', '00000000')))
-                                ->setBackgroundColor($this->parseColor(array_get($options, 'bgcolor', 'FFFFFF00')))
-                                ->setValidateResult(array_get($options, 'validate_result', false));
+        $qrcode = new QrCode($content);
+        $qrcode->setSize(array_get($options, 'size', 280));
+        $qrcode->setMargin(array_get($options, 'margin', 10));
+        $qrcode->setForegroundColor($this->parseColor(array_get($options, 'fgcolor', '00000000')));
+        $qrcode->setBackgroundColor($this->parseColor(array_get($options, 'bgcolor', 'FFFFFF00')));
+        $qrcode->setValidateResult(array_get($options, 'validate_result', false));
 
         ($ecl = array_get($options, 'ecl')) && $qrcode->setErrorCorrectionLevel($ecl);
 
